@@ -1,0 +1,169 @@
+Project  : NUCLEO-G474RE_FIR_FFT_wth_Print
+Purpose  : Study speed of FIR and FFT, later compare speed versus FMAC 
+Strategy : Use STM32F429I-DISC1_FIR_FFT_wth_Print and X-CUBE-DSPDEMO as basis
+
+** RCC **
+8Mhz (HSE) -> /6(M) -> X85(N) -> /2(P) -> PLLCLOCK = 170Mhz
+
+** SYS ** 
+Timebase Source = SysTick
+Debug = Trace SWV
+
+** NVIC **
+Enable Call HAL Handler on SysTick, need to call HAL_IncTick()
+
+** LED toggle **
+PA5 toggle
+
+** LPUART1 Testing **
+main.c
+	/* USER CODE BEGIN Includes */
+	#include <stdio.h>
+	
+	/* USER CODE BEGIN PFP */
+	#define PUTCHAR_PROTOTYPE int __io_putchar(int ch)
+
+	/* USER CODE BEGIN 4 */
+	PUTCHAR_PROTOTYPE
+	{
+	  /* Place your implementation of fputc here */
+	  /* e.g. write a character to the LPUART1 and Loop until the end of transmission */
+	  HAL_UART_Transmit(&huart1, (uint8_t *)&ch, 1, 0xFFFF); // hlpuart1 >> huart1
+
+	  return ch;
+	}
+	
+	// Test USART1
+	printf("Testing USART1\n");
+	
+** add CMSIS in CubeIDE **
+use guide >> https://www.reddit.com/r/stm32f4/comments/dbu61f/dsp_headers_not_found_in_stm32_cube_ide/
+download pack file from https://github.com/ARM-software/CMSIS_5/releases
+add pack file from local
+select components from Software packs, see photo "adding CMSIS in proj.png"
+
+** add arm_math.h/libarm_cortexM4lf_math.a **
+use guide >> https://www.youtube.com/watch?v=vCcALaGNlyw
+make new folder from root folder "dsp_binary"
+	copy "libarm_cortexM4lf_math.a" to "dsp_binary" folder
+From project Properties go to C/C++ Build >> Settings >> Tool Settings >> MCU GCC Linker >> Libraries
+add below, see photo "adding libarm_cortexM4lf_math.a.png"
+	Libraries (-l) >> arm_cortexM4lf_math
+	Library search path >> ../dsp_binary	
+	
+** Cheating / Short-cut **
+from STM32F429I-DISC1_FIR_FFT_wth_Print 
+	copy and overwrite main.c
+	copy and overwrite main.h
+	
+in main.c
+	in PUTCHAR_PROTOTYPE
+		change huart1 >> hlpuart1 
+	
+======================= NOT NEEDED BECAUSE I CHEATED! ==============	
+** FIR sample data printing **
+from X-CUBE-DSPDEMO
+main.c
+	copy all typedefs and variables from fir_processing.c to main.c
+	add typedefs
+		typedef int32_t q31_t;
+		typedef int16_t q15_t;
+		typedef float float32_t;
+	
+main.h
+	copy all defines from fir.h
+	
+print float
+	From project Properties go to C/C++ Build >> Settings >> Tool Settings >> MCU setting >> click "Use float ...."
+	see photo "print float.png"
+	
+
+
+** FIR Calculations **
+main.c 
+	add #include "arm_math.h"
+	remove all typedefs from fir_processing.c
+	add #define ARM_MATH_CM4
+
+from fir_processing.c
+	copy FIR_PROCESSING_F32Process(void) to main.c 
+	remove other functions pertaining to graphs and timing (we'll use scope), keep these:
+		arm_fir_init_f32
+		arm_fir_f32
+
+from fir_processing.c to main.c
+	copy FIR_PROCESSING_Q15Process(int LP_or_HP) and make it FIR_PROCESSING_Q15Process_LP(void);
+	remove other functions pertaining to graphs and timing (we'll use scope), keep these:
+		arm_float_to_q15
+		arm_fir_init_q15
+		arm_fir_q15
+	
+from fir_processing.c to main.c
+	copy FIR_PROCESSING_Q15Process(int LP_or_HP) and make it FIR_PROCESSING_Q15Process_HP(void);
+	remove other functions pertaining to graphs and timing (we'll use scope), keep these:
+		arm_float_to_q15
+		arm_fir_init_q15
+		arm_fir_q15
+		
+from fir_processing.c to main.c
+	copy FIR_PROCESSING_Q31Process(void)
+	remove other functions pertaining to graphs and timing (we'll use scope), keep these:
+		arm_float_to_q31 >> for coeffs/aFIR_F32_1kHz_15kHz
+		arm_float_to_q31 >> for data/aFIR_F32_1kHz_15kHz
+		arm_fir_init_q31
+		arm_fir_q31
+		
+** FFT Calculations from DAC data **
+main.c 
+	from global.c copy Sine12bit to main.c 
+	/* USER CODE BEGIN PV */
+	const uint16_t Sine12bit[NB_SAMPLES]
+	from global.h 
+	add #define NB_SAMPLES     		64
+	add #define SAMPLES				2048 			/* 256 real party and 256 imaginary parts */
+	add #define FFT_INVERSE_FLAG        ((uint8_t)0)
+	add #define FFT_Normal_OUTPUT_FLAG  ((uint8_t)1)
+	
+from fft_processing.c copy to main.c all the variables
+	float32_t aFFT_Input_f32[FFT_Length_Tab*2];
+	float32_t aFFT_Output_f32 [FFT_Length_Tab];
+	float32_t FFT_Input_Q15_f[FFT_Length_Tab*2];
+	q15_t aFFT_Input_Q15[FFT_Length_Tab*2];
+	q15_t FFT_Output_Q15[FFT_Length_Tab];
+	float32_t FFT_Input_Q31_f[FFT_Length_Tab*2];
+	q31_t aFFT_Input_Q31[FFT_Length_Tab*2];
+	q31_t FFT_Output_Q31[FFT_Length_Tab];
+	add #define FFT_Length_Tab 1024
+	
+from fft_processing.c
+	copy FFT_PROCESSING_Q15Process(uint32_t FFT_Length) to main.c 
+	copy FFT_PROCESSING_F32Process(uint32_t FFT_Length) to main.c 
+	copy FFT_PROCESSING_Q31Process(uint32_t FFT_Length) to main.c 
+	remove other functions pertaining to graphs and timing and TIM2 (we'll use scope)
+
+FFT_PROCESSING_Q15Process(uint32_t FFT_Length) add these:
+	uint16_t uhADCxConvertedValue = 0; // VT, simulated ADC reading but taken from DAC data Sine12bit
+	uint16_t aADC1ConvertedValue_s [SAMPLES]; // VT, simulated ADC reading array but taken from DAC data Sine12bit
+	in "first" for (index_fill_adc_buffer = 0; index_fill_adc_buffer < FFT_Length*2; index_fill_adc_buffer ++)
+		add uhADCxConvertedValue = Sine12bit[(index_fill_adc_buffer + NB_SAMPLES) % NB_SAMPLES]; // simulated adc reading from DAC data
+	in "second" for (index_fill_input_buffer = 0; index_fill_input_buffer < FFT_Length*2; index_fill_input_buffer += 2)
+		add uhADCxConvertedValue = Sine12bit[((cntr++) + NB_SAMPLES) % NB_SAMPLES]; // simulated adc reading from DAC data
+	add uint32_t cntr = 0; before "second" for loop
+		
+FFT_PROCESSING_F32Process(uint32_t FFT_Length) add these:
+	uint16_t uhADCxConvertedValue = 0; // VT, simulated ADC reading but taken from DAC data Sine12bit
+	uint16_t aADC1ConvertedValue_s [SAMPLES]; // VT, simulated ADC reading array but taken from DAC data Sine12bit
+	in "first" for (index_fill_adc_buffer = 0; index_fill_adc_buffer < FFT_Length*2; index_fill_adc_buffer ++)
+		add uhADCxConvertedValue = Sine12bit[(index_fill_adc_buffer + NB_SAMPLES) % NB_SAMPLES]; // simulated adc reading from DAC data
+	in "second" for (index_fill_input_buffer = 0; index_fill_input_buffer < FFT_Length*2; index_fill_input_buffer += 2)
+		add uhADCxConvertedValue = Sine12bit[((cntr++) + NB_SAMPLES) % NB_SAMPLES]; // simulated adc reading from DAC data
+	add uint32_t cntr = 0; before "second" for loop
+	
+FFT_PROCESSING_Q31Process(uint32_t FFT_Length) add these:
+	uint16_t uhADCxConvertedValue = 0; // VT, simulated ADC reading but taken from DAC data Sine12bit
+	uint16_t aADC1ConvertedValue_s [SAMPLES]; // VT, simulated ADC reading array but taken from DAC data Sine12bit
+	in "first" for (index_fill_adc_buffer = 0; index_fill_adc_buffer < FFT_Length*2; index_fill_adc_buffer ++)
+		add uhADCxConvertedValue = Sine12bit[(index_fill_adc_buffer + NB_SAMPLES) % NB_SAMPLES]; // simulated adc reading from DAC data
+	in "second" for (index_fill_input_buffer = 0; index_fill_input_buffer < FFT_Length*2; index_fill_input_buffer += 2)
+		add uhADCxConvertedValue = Sine12bit[((cntr++) + NB_SAMPLES) % NB_SAMPLES]; // simulated adc reading from DAC data
+	add uint32_t cntr = 0; before "second" for loop
