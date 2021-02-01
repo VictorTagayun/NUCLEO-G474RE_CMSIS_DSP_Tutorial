@@ -7,6 +7,6 @@ used STM32F429I-DISC1_FIR_FFT_wth_Print & X-CUBE-DSPDEMO as basis
 2021-02-01
 >> add FFT codes
 >> captured data on excel
->> added to do
+>> added "to do.txt"
 
 2. other projects like single data, etc.
