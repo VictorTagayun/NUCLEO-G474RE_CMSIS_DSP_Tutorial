@@ -229,12 +229,6 @@ int main(void)
   // Test USART1
 //  printf("Testing USART1\n");
 
-  printf("aFIR_F32_1kHz_15kHz\n");
-  for (uint16_t Index=0; Index<TEST_LENGTH_SAMPLES; Index++)
-  {
-    printf("%d %.20f\n",Index, aFIR_F32_1kHz_15kHz[Index]);
-  }
-
 //  printf("aFIR_F32_Coeffs\n");
 //  for (uint16_t Index=0; Index<NUM_TAPS; Index++)
 //  {
@@ -289,16 +283,16 @@ int main(void)
 //    printf("%d %d\n",Index, aFIR_Q31_Output[Index]);
 //  }
 
-  FFT_PROCESSING_Q15Process(64);
-  FFT_PROCESSING_Q15Process(256);
+//  FFT_PROCESSING_Q15Process(64);
+//  FFT_PROCESSING_Q15Process(256);
   FFT_PROCESSING_Q15Process(1024);
-
-  FFT_PROCESSING_F32Process(64);
-  FFT_PROCESSING_F32Process(256);
+//
+//  FFT_PROCESSING_F32Process(64);
+//  FFT_PROCESSING_F32Process(256);
   FFT_PROCESSING_F32Process(1024);
-
-  FFT_PROCESSING_Q31Process(64);
-  FFT_PROCESSING_Q31Process(256);
+//
+//  FFT_PROCESSING_Q31Process(64);
+//  FFT_PROCESSING_Q31Process(256);
   FFT_PROCESSING_Q31Process(1024);
 
 
@@ -490,17 +484,23 @@ void FIR_PROCESSING_F32Process(void)
     arm_fir_f32(&FIR_F32_Struct, aFIR_F32_1kHz_15kHz + (counter_FIR_f32_p * blockSize), aFIR_F32_Output + (counter_FIR_f32_p * blockSize), blockSize);
   }
 
-  printf("aFIR_F32_Coeffs\n");
-  for (uint16_t Index=0; Index<NUM_TAPS; Index++)
-  {
-    printf("%d %.20f\n",Index, aFIR_F32_Coeffs[Index]);
-  }
-
-  printf("aFIR_F32_Output\n");
-  for (uint16_t Index=0; Index<TEST_LENGTH_SAMPLES; Index++)
-  {
-    printf("%d %.20f\n",Index, aFIR_F32_Output[Index]);
-  }
+//  printf("aFIR_F32_1kHz_15kHz\n");
+//  for (uint16_t Index  =0; Index < TEST_LENGTH_SAMPLES; Index++)
+//  {
+//    printf("%d %.20f\n",Index, aFIR_F32_1kHz_15kHz[Index]);
+//  }
+//
+//  printf("aFIR_F32_Coeffs\n");
+//  for (uint16_t Index = 0; Index < NUM_TAPS; Index++)
+//  {
+//    printf("%d %.20f\n",Index, aFIR_F32_Coeffs[Index]);
+//  }
+//
+//  printf("aFIR_F32_Output\n");
+//  for (uint16_t Index = 0; Index < TEST_LENGTH_SAMPLES; Index++)
+//  {
+//    printf("%d %.20f\n",Index, aFIR_F32_Output[Index]);
+//  }
 
 //  TimerCount_Stop(nb_cycles);
 
@@ -557,17 +557,23 @@ void FIR_PROCESSING_Q15Process_LP(void)
     arm_fir_q15(&FIR_Q15_Struct, aFIR_Q15_1kHz_15kHz + (counter_FIR_Q15_p * BLOCKSIZE), aFIR_Q15_Output + (counter_FIR_Q15_p * BLOCKSIZE), BLOCKSIZE);
   }
 
-  printf("aFIR_Q15_Coeffs_LP\n");
-  for (uint16_t Index=0; Index<NUM_FIR_TAPS_Q15; Index++)
-  {
-    printf("%d %d\n",Index, aFIR_Q15_Coeffs_LP[Index]);
-  }
-
-  printf("aFIR_Q15_Output_LP\n");
-  for (uint16_t Index=0; Index<TEST_LENGTH_SAMPLES; Index++)
-  {
-    printf("%d %d\n",Index, aFIR_Q15_Output[Index]);
-  }
+//  printf("aFIR_Q15_1kHz_15kHz\n");
+//  for (uint16_t Index = 0; Index < TEST_LENGTH_SAMPLES; Index++)
+//  {
+//    printf("%d %d\n",Index, aFIR_Q15_1kHz_15kHz[Index]);
+//  }
+//
+//  printf("aFIR_Q15_Coeffs_LP\n");
+//  for (uint16_t Index = 0; Index < NUM_FIR_TAPS_Q15; Index++)
+//  {
+//    printf("%d %d\n",Index, aFIR_Q15_Coeffs_LP[Index]);
+//  }
+//
+//  printf("aFIR_Q15_Output_LP\n");
+//  for (uint16_t Index = 0; Index < TEST_LENGTH_SAMPLES; Index++)
+//  {
+//    printf("%d %d\n",Index, aFIR_Q15_Output[Index]);
+//  }
 
 //  TimerCount_Stop(nb_cycles);
 //
@@ -600,7 +606,7 @@ void FIR_PROCESSING_Q15Process_HP(void)
 //  static int counter_FIR_Dd;
 //  int DataID = 1;
 //  uint32_t duration_us = 0x00;
-  arm_float_to_q15((float32_t *)&aFIR_F32_1kHz_15kHz[0], (q15_t *)&aFIR_Q15_1kHz_15kHz[0], TEST_LENGTH_SAMPLES);
+//  arm_float_to_q15((float32_t *)&aFIR_F32_1kHz_15kHz[0], (q15_t *)&aFIR_Q15_1kHz_15kHz[0], TEST_LENGTH_SAMPLES); // not needed as already done in FIR_PROCESSING_Q15Process_LP
   /* Call FIR init function to initialize the instance structure. */
 //  if (LP_or_HP == LPF)
 //  {
@@ -619,17 +625,17 @@ void FIR_PROCESSING_Q15Process_HP(void)
     arm_fir_q15(&FIR_Q15_Struct, aFIR_Q15_1kHz_15kHz + (counter_FIR_Q15_p * BLOCKSIZE), aFIR_Q15_Output + (counter_FIR_Q15_p * BLOCKSIZE), BLOCKSIZE);
   }
 
-  printf("aFIR_Q15_Coeffs_HP\n");
-  for (uint16_t Index=0; Index<NUM_FIR_TAPS_Q15; Index++)
-  {
-    printf("%d %d\n",Index, aFIR_Q15_Coeffs_HP[Index]);
-  }
-
-  printf("aFIR_Q15_Output_HP\n");
-  for (uint16_t Index=0; Index<TEST_LENGTH_SAMPLES; Index++)
-  {
-    printf("%d %d\n",Index, aFIR_Q15_Output[Index]);
-  }
+//  printf("aFIR_Q15_Coeffs_HP\n");
+//  for (uint16_t Index = 0; Index < NUM_FIR_TAPS_Q15; Index++)
+//  {
+//    printf("%d %d\n",Index, aFIR_Q15_Coeffs_HP[Index]);
+//  }
+//
+//  printf("aFIR_Q15_Output_HP\n");
+//  for (uint16_t Index = 0; Index < TEST_LENGTH_SAMPLES; Index++)
+//  {
+//    printf("%d %d\n",Index, aFIR_Q15_Output[Index]);
+//  }
 
 //  TimerCount_Stop(nb_cycles);
 //
@@ -681,16 +687,23 @@ void FIR_PROCESSING_Q31Process(void)
     arm_fir_q31(&FIR_Q31_Struct, aFIR_Q31_1kHz_15kHz + (counter_FIR_Q31_p * blockSize), aFIR_Q31_Output + (counter_FIR_Q31_p * blockSize), blockSize);
   }
 
-  printf("aFIR_Q31_Coeffs\n");
-  for (uint16_t Index=0; Index<NUM_TAPS; Index++)
-  {
-    printf("%d %d\n",Index, aFIR_Q31_Coeffs[Index]);
-  }
-  printf("aFIR_Q31_1kHz_15kHz\n");
-  for (uint16_t Index=0; Index<TEST_LENGTH_SAMPLES; Index++)
-  {
-    printf("%d %d\n",Index, aFIR_Q31_Output[Index]);
-  }
+//  printf("aFIR_Q31_1kHz_15kHz\n");
+//  for (uint16_t Index = 0; Index < TEST_LENGTH_SAMPLES; Index++)
+//  {
+//    printf("%d %d\n",Index, aFIR_Q31_1kHz_15kHz[Index]);
+//  }
+//
+//  printf("aFIR_Q31_Coeffs\n");
+//  for (uint16_t Index = 0; Index < NUM_TAPS; Index++)
+//  {
+//    printf("%d %d\n",Index, aFIR_Q31_Coeffs[Index]);
+//  }
+//
+//  printf("aFIR_Q31_Output\n");
+//  for (uint16_t Index = 0; Index < TEST_LENGTH_SAMPLES; Index++)
+//  {
+//    printf("%d %d\n",Index, aFIR_Q31_Output[Index]);
+//  }
 
 //  TimerCount_Stop(nb_cycles);
 //
@@ -743,9 +756,9 @@ void FFT_PROCESSING_Q15Process(uint32_t FFT_Length)
   uint32_t cntr = 0;
   for (index_fill_input_buffer = 0; index_fill_input_buffer < FFT_Length*2; index_fill_input_buffer += 2)
   {
-	  uhADCxConvertedValue = Sine12bit[((cntr++) + NB_SAMPLES) % NB_SAMPLES]; // simulated adc reading from DAC data
-//	  FFT_Input_Q15_f[(uint16_t)index_fill_input_buffer] = (float32_t)aADC1ConvertedValue_s[cntr++] / (float32_t)4096.0;
-    FFT_Input_Q15_f[(uint16_t)index_fill_input_buffer] = (float32_t)uhADCxConvertedValue / (float32_t)4096.0; // orig
+	  FFT_Input_Q15_f[(uint16_t)index_fill_input_buffer] = (float32_t)aADC1ConvertedValue_s[cntr++] / (float32_t)4096.0; // works alone, below 2 lines should be commented
+//	  uhADCxConvertedValue = Sine12bit[((cntr++) + NB_SAMPLES) % NB_SAMPLES]; // simulated adc reading from DAC data, works together with below. Above line should be commented
+//    FFT_Input_Q15_f[(uint16_t)index_fill_input_buffer] = (float32_t)uhADCxConvertedValue / (float32_t)4096.0; // orig
     /* Imaginary part */
     FFT_Input_Q15_f[(uint16_t)(index_fill_input_buffer + 1)] = 0;
 
@@ -758,8 +771,26 @@ void FFT_PROCESSING_Q15Process(uint32_t FFT_Length)
   arm_cfft_radix4_init_q15(&FFT_Q15_struct, FFT_Length, FFT_INVERSE_FLAG, FFT_Normal_OUTPUT_FLAG);
 
 //  TimerCount_Start();
-  arm_cfft_radix4_q15(&FFT_Q15_struct, aFFT_Input_Q15);
+  arm_cfft_radix4_q15(&FFT_Q15_struct, aFFT_Input_Q15); // this will change the contents of aFFT_Input_Q15
 //  TimerCount_Stop(nb_cycles);
+
+//  combine arm_cfft_radix4_init_q15 and arm_cfft_radix4_q15 to this function (below)
+//  void arm_cfft_q15	( const arm_cfft_instance_q15 * 	S,
+//	  q15_t * 	p1,
+//	  uint8_t 	ifftFlag,
+//	  uint8_t 	bitReverseFlag
+//  )
+//  Parameters
+//	  [in]	S	points to an instance of Q15 CFFT structure
+//	  [in,out]	p1	points to the complex data buffer of size 2*fftLen. Processing occurs in-place
+//	  [in]	ifftFlag	flag that selects transform direction
+//		  value = 0: forward transform
+//		  value = 1: inverse transform
+//	  [in]	bitReverseFlag	flag that enables / disables bit reversal of output
+//		  value = 0: disables bit reversal of output
+//		  value = 1: enables bit reversal of output
+//  Returns none
+
 
 //  GUI_Clear();
 //  LCD_OUTPUT_Cycles(5, 305, nb_cycles);
@@ -792,6 +823,19 @@ void FFT_PROCESSING_Q15Process(uint32_t FFT_Length)
   {
     printf("%d %d\n",Index, aADC1ConvertedValue_s[Index]);
   }
+
+//  printf("FFT_Input_Q15_f\n");
+//  for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
+//  {
+//    printf("%d %.20f\n",Index, FFT_Input_Q15_f[Index]); // FFT_Input_Q15_f is float
+//  }
+//
+//  printf("aFFT_Input_Q15\n");
+//  for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
+//  {
+//    printf("%d %d\n",Index, aFFT_Input_Q15[Index]);
+//  }
+
   printf("FFT_Output_Q15\n");
   for (uint16_t Index = 0; Index < FFT_Length; Index++)
   {
@@ -828,12 +872,19 @@ void FFT_PROCESSING_F32Process(uint32_t FFT_Length)
   uint32_t cntr = 0;
   for (index_fill_input_buffer = 0; index_fill_input_buffer < FFT_Length*2; index_fill_input_buffer += 2)
   {
-	  uhADCxConvertedValue = Sine12bit[((cntr++) + NB_SAMPLES) % NB_SAMPLES];
+//	  aFFT_Input_f32[(uint16_t)index_fill_input_buffer] = (float32_t)aADC1ConvertedValue_s[cntr++] / (float32_t)4096.0; // works alone, below 2 lines should be commented
+	  uhADCxConvertedValue = Sine12bit[((cntr++) + NB_SAMPLES) % NB_SAMPLES]; // simulated adc reading from DAC data, works together with below. Above line should be commented
     aFFT_Input_f32[(uint16_t)index_fill_input_buffer] = (float32_t)uhADCxConvertedValue / (float32_t)4096.0; // orig
     /* Imaginary part */
     aFFT_Input_f32[(uint16_t)(index_fill_input_buffer + 1)] = 0;
 //    TIM2_Config();
   }
+
+//  printf("aFFT_Input_f32\n");
+//  for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
+//  {
+//    printf("%d %.20f\n",Index, aFFT_Input_f32[Index]);
+//  }
 
   /* Initialize the CFFT/CIFFT module, intFlag = 0, doBitReverse = 1 */
   arm_cfft_radix4_init_f32(&FFT_F32_struct, FFT_Length, FFT_INVERSE_FLAG, FFT_Normal_OUTPUT_FLAG);
@@ -841,6 +892,23 @@ void FFT_PROCESSING_F32Process(uint32_t FFT_Length)
 //  TimerCount_Start();
   arm_cfft_radix4_f32(&FFT_F32_struct, aFFT_Input_f32);
 //  TimerCount_Stop(nb_cycles);
+
+//  combine arm_cfft_radix4_init_f32 and arm_cfft_radix4_f32 to this function (below)
+//  void arm_cfft_f32	(const arm_cfft_instance_f32 * 	S,
+//  float32_t * 	p1,
+//  uint8_t 	ifftFlag,
+//  uint8_t 	bitReverseFlag
+//  )
+//  Parameters
+//	  [in]	S	points to an instance of the floating-point CFFT structure
+//	  [in,out]	p1	points to the complex data buffer of size 2*fftLen. Processing occurs in-place
+//	  [in]	ifftFlag	flag that selects transform direction
+//		  value = 0: forward transform
+//		  value = 1: inverse transform
+//	  [in]	bitReverseFlag	flag that enables / disables bit reversal of output
+//		  value = 0: disables bit reversal of output
+//		  value = 1: enables bit reversal of output
+//  Returns none
 
 //  GUI_Clear();
 //  LCD_OUTPUT_Cycles(5, 305, nb_cycles);
@@ -867,13 +935,20 @@ void FFT_PROCESSING_F32Process(uint32_t FFT_Length)
 //    GRAPH_DATA_YT_AddValue(aGraph_Data[0], aFFT_Output_f32[index_fill_output_buffer] + 10);
 //  }
 
-  printf("FFT_PROCESSING_F32Process %d samples\n", FFT_Length);
-  for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
-  {
-    printf("%d %d\n",Index, aADC1ConvertedValue_s[Index]);
-  }
+//  printf("FFT_PROCESSING_F32Process %d samples\n", FFT_Length);
+//  for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
+//  {
+//    printf("%d %d\n",Index, aADC1ConvertedValue_s[Index]);
+//  }
+
+//  printf("aFFT_Input_f32\n");
+//  for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
+//  {
+//    printf("%d %.20f\n",Index, aFFT_Input_f32[Index]);
+//  }
+
   printf("aFFT_Output_f32\n");
-  for (uint16_t Index = 0; Index < FFT_Length; Index++)
+  for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
   {
     printf("%d %.20f\n",Index, aFFT_Output_f32[Index]);
   }
@@ -951,16 +1026,30 @@ void FFT_PROCESSING_Q31Process(uint32_t FFT_Length)
 //
 //  }
 
-  printf("FFT_PROCESSING_Q31Process %d samples\n", FFT_Length);
-  for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
-  {
-    printf("%d %d\n",Index, aADC1ConvertedValue_s[Index]);
-  }
+//  printf("FFT_PROCESSING_Q31Process %d samples\n", FFT_Length);
+//  for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
+//  {
+//    printf("%d %d\n",Index, aADC1ConvertedValue_s[Index]);
+//  }
+//
+//    printf("FFT_Input_Q31_f\n");
+//    for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
+//    {
+//      printf("%d %.20f\n",Index, FFT_Input_Q31_f[Index]); // FFT_Input_Q15_f is float
+//    }
+//
+//    printf("aFFT_Input_Q31\n");
+//    for (uint16_t Index = 0; Index < FFT_Length*2; Index++)
+//    {
+//      printf("%d %d\n",Index, aFFT_Input_Q31[Index]);
+//    }
+
   printf("FFT_Output_Q31\n");
   for (uint16_t Index = 0; Index < FFT_Length; Index++)
   {
     printf("%d %d\n",Index, FFT_Output_Q31[Index]);
   }
+
 
 }
 

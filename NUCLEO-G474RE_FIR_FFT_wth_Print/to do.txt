@@ -1,0 +1,10 @@
+in FFT_PROCESSING_Q15Process:
+	using arm_float_to_q15() check why some odd arrays of aFFT_Input_Q15[] have data when FFT_Input_Q15_f[] odd arrays are zero, check on F429
+	>> arm_cfft_radix4_q15() is changing the contents of aFFT_Input_Q15[] >> https://arm-software.github.io/CMSIS_5/DSP/html/group__ComplexFFT.html#ga8d66cdac41b8bf6cefdb895456eee84a
+	combine arm_cfft_radix4_init_q15 and arm_cfft_radix4_q15 to arm_cfft_q15 >> https://arm-software.github.io/CMSIS_5/DSP/html/group__ComplexFFT.html#gade0f9c4ff157b6b9c72a1eafd86ebf80
+	
+in FFT_PROCESSING_F32Process:
+	combine arm_cfft_radix4_init_f32 and arm_cfft_radix4_f32 to arm_cfft_q15 >> https://www.keil.com/pack/doc/CMSIS_Dev/DSP/html/group__ComplexFFT.html#gade0f9c4ff157b6b9c72a1eafd86ebf80
+	
+in all FFT, use F429 to print data of FFT
+	see more details on how to do on F249 github

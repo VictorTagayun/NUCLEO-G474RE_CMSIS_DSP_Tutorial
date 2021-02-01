@@ -59,6 +59,22 @@ from STM32F429I-DISC1_FIR_FFT_wth_Print
 in main.c
 	in PUTCHAR_PROTOTYPE
 		change huart1 >> hlpuart1 
+		
+in FIR_PROCESSING_Q15Process_LP
+	add print to show converted aFIR_F32_1kHz_15kHz to aFIR_Q15_1kHz_15kHz
+	printf("aFIR_Q15_1kHz_15kHz\n");
+	for (uint16_t Index = 0; Index < NUM_FIR_TAPS_Q15; Index++)
+	{
+		printf("%d %d\n",Index, aFIR_Q15_1kHz_15kHz[Index]);
+	}
+
+in FIR_PROCESSING_Q31Process
+	add print to show converted aFIR_F32_1kHz_15kHz to aFIR_Q31_1kHz_15kHz
+	printf("aFIR_Q31_1kHz_15kHz\n");
+	for (uint16_t Index = 0; Index < TEST_LENGTH_SAMPLES; Index++)
+	{
+		printf("%d %d\n",Index, aFIR_Q31_1kHz_15kHz[Index]);
+	}
 	
 ======================= NOT NEEDED BECAUSE I CHEATED! ==============	
 ** FIR sample data printing **
