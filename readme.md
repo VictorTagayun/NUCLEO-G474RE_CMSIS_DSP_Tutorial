@@ -54,9 +54,9 @@ Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTag
 
 		Then converted to Q15 and Q31
 		
-	#### The folling waveforms are the printout from MCU and plotted in Excel
+#### The folling waveforms are the printout from MCU and plotted in Excel
 	
-	##### Float 32 
+##### Float 32 
 	
 	F32 Input Signal 1kHz + 15kHz
 	![]()
@@ -125,7 +125,7 @@ Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTag
 			599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647
 		  };
 
-	#### The folling waveforms are the printout from MCU and plotted in Excel wrongfully converted to Float but not needed
+#### The folling waveforms are the printout from MCU and plotted in Excel wrongfully converted to Float but not needed
 	
 	Input DAC signal
 	![]()
