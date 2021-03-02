@@ -4,15 +4,15 @@
 
 Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTagayun/STM32F429I-DISC1_CMSIS_DSP_Tutorial) & X-CUBE-DSPDEMO as basis
 
-### First tested on NUCLEO-G474RE_FIR_FFT_wth_Print
->> import by ioc and generate code first
->> click "Use float with printf ...."
->> add libarm_cortexM4lf_math.a in the linker settings  
+### First tested on NUCLEO-G474RE_FIR_FFT_wth_Print  
+  import by ioc and generate code first  
+  click "Use float with printf ...."  
+  add libarm_cortexM4lf_math.a in the linker settings  
 
-2021-02-01
->> add FFT codes
->> captured data on excel
->> added "to do.txt"
+  2021-02-01  
+  add FFT codes  
+  captured data on excel  
+  added "to do.txt"
 		
 ### FIR Testing
 
@@ -58,95 +58,95 @@ Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTag
 	
 ##### Float 32 
 	
-	F32 Input Signal 1kHz + 15kHz
-	![]()
-	
-	FFT F32 calculated using Excel
-	![]()
-	
-	Impulse = F32 Low Pass Filter
-	![]()
-	
-	F32 Filtered Signal 1kHz
-	![]()
-	
-	##### Q15 converted by DSP function  
-	
-	Q15 (conv.) Input Signal 1kHz + 15kHz
-	![]()
-	
-	Impulse = Q15 Low Pass Filter
-	![]()
-	
-	Q15 Filtered Signal 1kHz
-	![]()
-	
-	FFT Q15 Filtered Signal 1kHz Calculated by Excel
-	!()[]
-	
-	Impulse = Q15 High Pass Filter
-	![]()
-	
-	Q15 Filtered Signal 15kHz
-	![]()
-	
-	FFT Q15 Filtered Signal 15kHz Calculated by Excel
-	![]()
-	
-	##### Q31 converted by DSP function  
-	
-	Q31 (conv.) Input Signal 1kHz + 15kHz
-	![]()
-	
-	FFT Q31 (conv.)
-	![]()
-	
-	Impulse = Q31 Low Pass Filter
-	![]()
-	
-	Q31 Filtered Signal 1kHz
-	![]()
-	
-	FFT Q31 Filtered Signal 1kHz Calculated by Excel
-	![]() 
+F32 Input Signal 1kHz + 15kHz
+![]()
+
+FFT F32 calculated using Excel
+![]()
+
+Impulse = F32 Low Pass Filter
+![]()
+
+F32 Filtered Signal 1kHz
+![]()
+
+##### Q15 converted by DSP function  
+
+Q15 (conv.) Input Signal 1kHz + 15kHz
+![]()
+
+Impulse = Q15 Low Pass Filter
+![]()
+
+Q15 Filtered Signal 1kHz
+![]()
+
+FFT Q15 Filtered Signal 1kHz Calculated by Excel
+!()[]
+
+Impulse = Q15 High Pass Filter
+![]()
+
+Q15 Filtered Signal 15kHz
+![]()
+
+FFT Q15 Filtered Signal 15kHz Calculated by Excel
+![]()
+
+##### Q31 converted by DSP function  
+
+Q31 (conv.) Input Signal 1kHz + 15kHz
+![]()
+
+FFT Q31 (conv.)
+![]()
+
+Impulse = Q31 Low Pass Filter
+![]()
+
+Q31 Filtered Signal 1kHz
+![]()
+
+FFT Q31 Filtered Signal 1kHz Calculated by Excel
+![]() 
 
 	
 ### FFT Testing
 
 #### Data are fed to the DSP
 	
-		const uint16_t Sine12bit[NB_SAMPLES] =
-		  {
-			2047, 2447, 2831, 3185, 3498, 3750, 3939, 4056, 4095, 4056,
-			3939, 3750, 3495, 3185, 2831, 2447, 2047, 1647, 1263, 909,
-			599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647,
-			2047, 2447, 2831, 3185, 3498, 3750, 3939, 4056, 4095, 4056,
-			3939, 3750, 3495, 3185, 2831, 2447, 2047, 1647, 1263, 909,
-			599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647
-		  };
+	const uint16_t Sine12bit[NB_SAMPLES] =
+	  {
+		2047, 2447, 2831, 3185, 3498, 3750, 3939, 4056, 4095, 4056,
+		3939, 3750, 3495, 3185, 2831, 2447, 2047, 1647, 1263, 909,
+		599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647,
+		2047, 2447, 2831, 3185, 3498, 3750, 3939, 4056, 4095, 4056,
+		3939, 3750, 3495, 3185, 2831, 2447, 2047, 1647, 1263, 909,
+		599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647
+	  };
 
 #### The folling waveforms are the printout from MCU and plotted in Excel wrongfully converted to Float but not needed
 	
-	Input DAC signal
-	![]()
-	
-	FFT Normalized
-	![]()
-	
-	FFT Output Q15
-	![]()
-	
-	FFT Output Q15 (Normalized) using Excel Calculation
-	![]()
-	
-	FFT Output Float32
-	![]()
-	
-	FFT Output Float32 (normalized) using Excel Calculation
-	![]()
-	
-	FFT Output Q31
-	![]()
-	
-	FFT Output Q31 (normalized) using Excel Calculation
-	![]()
+Input DAC signal
+![]()
+
+FFT Normalized
+![]()
+
+FFT Output Q15
+![]()
+
+FFT Output Q15 (Normalized) using Excel Calculation
+![]()
+
+FFT Output Float32
+![]()
+
+FFT Output Float32 (normalized) using Excel Calculation
+![]()
+
+FFT Output Q31
+![]()
+
+FFT Output Q31 (normalized) using Excel Calculation
+![]()
