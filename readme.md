@@ -16,7 +16,7 @@ Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTag
 		
 ### FIR Testing
 
-	#### Data are fed to the DSP/Filter
+#### Data are fed to the DSP/Filter
 	
 		float32_t aFIR_F32_1kHz_15kHz[TEST_LENGTH_SAMPLES] =
 		{
@@ -113,7 +113,7 @@ Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTag
 	
 ### FFT Testing
 
-	#### Data are fed to the DSP
+#### Data are fed to the DSP
 	
 		const uint16_t Sine12bit[NB_SAMPLES] =
 		  {
