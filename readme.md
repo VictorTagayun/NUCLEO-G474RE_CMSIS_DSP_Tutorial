@@ -108,7 +108,7 @@ Q31 Filtered Signal 1kHz
 ![Q31 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_1k_filtered_output.png)
 
 FFT Q31 Filtered Signal 1kHz Calculated by Excel  
-![FFT Q31 Filtered Signal 1kHz Calculated by Excel]() 
+![FFT Q31 Filtered Signal 1kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_1k_filtered_output_FFT.png) 
 
 	
 ### FFT Testing  
