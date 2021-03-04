@@ -82,7 +82,7 @@ Q15 Filtered Signal 1kHz
 ![Q15 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_1k_filtered_output.png)
 
 FFT Q15 Filtered Signal 1kHz Calculated by Excel  
-!(FFT Q15 Filtered Signal 1kHz Calculated by Excel)[https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_FFT%20(nomalized).png]
+![FFT Q15 Filtered Signal 1kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_FFT%20(nomalized).png)
 
 Impulse = Q15 High Pass Filter  
 ![Impulse = Q15 High Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_HP_coeff.png)
