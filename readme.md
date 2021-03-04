@@ -149,3 +149,14 @@ FFT Output Q31 calculated by MCU/DSP
 
 FFT Output Q31 (normalized) using Excel Calculation  
 ![FFT Output Q31 (normalized) using Excel Calculation](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_FFT%20(nomalized).png)
+
+### Other Reference :
+
+[STM32F429I-DISC1_FIR_FFT_wth_Print Project](https://github.com/VictorTagayun/STM32F429I-DISC1_CMSIS_DSP_Tutorial)
+
+*Disclaimer:*
+
+*The projects posted here are for learning and educational purposes only.*
+*The purpose of a certain project may be for testing a module and may be just a part of a whole project.*
+*It should not be used in a production or commercial environment.*
+*Any cause of injury and/or death is the sole responsibility of the user.*
