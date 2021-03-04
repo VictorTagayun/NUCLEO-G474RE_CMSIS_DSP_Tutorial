@@ -59,56 +59,56 @@ Then converted to Q15 and Q31
 ##### Float 32 
 	
 F32 Input Signal 1kHz + 15kHz
-![]()
+![F32 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_15k_input.png)
 
 FFT F32 calculated using Excel
-![]()
+![FFT F32 calculated using Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_FFT%20(nomalized).png)
 
 Impulse = F32 Low Pass Filter
-![]()
+![Impulse = F32 Low Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_15k_input_coeff.png)
 
 F32 Filtered Signal 1kHz
-![]()
+![F32 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_filtered_output.png)
 
 ##### Q15 converted by DSP function  
 
-Q15 (conv.) Input Signal 1kHz + 15kHz
-![]()
+Q15 Input Signal 1kHz + 15kHz (converted by DSP from Float32 to Q15)
+![Q15 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15(conv)_1k_15k_input.png)
 
 Impulse = Q15 Low Pass Filter
-![]()
+![Impulse = Q15 Low Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_LP_coeff.png)
 
 Q15 Filtered Signal 1kHz
-![]()
+![Q15 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_1k_filtered_output.png)
 
 FFT Q15 Filtered Signal 1kHz Calculated by Excel
-!()[]
+!(FFT Q15 Filtered Signal 1kHz Calculated by Excel)[https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_FFT%20(nomalized).png]
 
 Impulse = Q15 High Pass Filter
-![]()
+![Impulse = Q15 High Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_HP_coeff.png)
 
 Q15 Filtered Signal 15kHz
-![]()
+![Q15 Filtered Signal 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_15k_filtered_output.png)
 
 FFT Q15 Filtered Signal 15kHz Calculated by Excel
-![]()
+![FFT Q15 Filtered Signal 15kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_15k_filtered_output_FFT.png)
 
-##### Q31 converted by DSP function  
+##### Q31 converted by DSP function printout by MCU/DSP and plotted to Excel  
 
-Q31 (conv.) Input Signal 1kHz + 15kHz
-![]()
+Q31 Input Signal 1kHz + 15kHz (converted by DSP from Float32 to Q31)
+![31 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31(conv)_1k_15k_input.png)
 
-FFT Q31 (conv.)
-![]()
+FFT Q31 Calculated by Excel
+![FFT Q31](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_FFT%20(nomalized).png)
 
 Impulse = Q31 Low Pass Filter
-![]()
+![Impulse = Q31 Low Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_LP_coeff.png)
 
 Q31 Filtered Signal 1kHz
-![]()
+![Q31 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_1k_filtered_output.png)
 
 FFT Q31 Filtered Signal 1kHz Calculated by Excel
-![]() 
+![FFT Q31 Filtered Signal 1kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_FFT%20(nomalized).png) 
 
 	
 ### FFT Testing
