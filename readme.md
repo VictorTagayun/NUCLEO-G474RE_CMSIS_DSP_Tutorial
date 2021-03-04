@@ -1,8 +1,7 @@
 # DSP Software Study and Analysis  
+To Study DSP concepts using STM32 on NUCLEO-G474RE  
 
-## To Study DSP concepts using STM32 on NUCLEO-G474RE  
-
-Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTagayun/STM32F429I-DISC1_CMSIS_DSP_Tutorial) & X-CUBE-DSPDEMO as basis
+#### Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTagayun/STM32F429I-DISC1_CMSIS_DSP_Tutorial) & X-CUBE-DSPDEMO as basis
 
 ### First tested on NUCLEO-G474RE_FIR_FFT_wth_Print  
   import by ioc and generate code first  
@@ -14,9 +13,9 @@ Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTag
   captured data on excel  
   added "to do.txt"
 		
-### FIR Testing
+## FIR Testing
 
-#### Data are fed to the DSP/Filter  
+### Data are fed to the DSP/Filter  
 	
 	float32_t aFIR_F32_1kHz_15kHz[TEST_LENGTH_SAMPLES] =
 	{
@@ -54,9 +53,9 @@ Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTag
 
 Then converted to Q15 and Q31
 		
-#### The folling waveforms are the printout from MCU and plotted in Excel
+### The folling waveforms are the printout from MCU and plotted in Excel
 	
-##### Float 32 
+#### Float 32 
 	
 F32 Input Signal 1kHz + 15kHz  
 ![F32 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_15k_input.png)
@@ -70,7 +69,7 @@ Impulse = F32 Low Pass Filter
 F32 Filtered Signal 1kHz  
 ![F32 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_filtered_output.png)
 
-##### Q15 converted by DSP function  
+#### Q15 converted by DSP function  
 
 Q15 Input Signal 1kHz + 15kHz (converted by DSP from Float32 to Q15)  
 ![Q15 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15(conv)_1k_15k_input.png)
@@ -93,7 +92,7 @@ Q15 Filtered Signal 15kHz
 FFT Q15 Filtered Signal 15kHz Calculated by Excel  
 ![FFT Q15 Filtered Signal 15kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_15k_filtered_output_FFT.png)
 
-##### Q31 converted by DSP function printout by MCU/DSP and plotted to Excel  
+#### Q31 converted by DSP function printout by MCU/DSP and plotted to Excel  
 
 Q31 Input Signal 1kHz + 15kHz (converted by DSP from Float32 to Q31)  
 ![31 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31(conv)_1k_15k_input.png)
@@ -111,9 +110,9 @@ FFT Q31 Filtered Signal 1kHz Calculated by Excel
 ![FFT Q31 Filtered Signal 1kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_1k_filtered_output_FFT.png) 
 
 	
-### FFT Testing  
+## FFT Testing  
 
-#### Data are fed to the DSP  
+### Data are fed to the DSP  
 	
 	const uint16_t Sine12bit[NB_SAMPLES] =
 	  {
@@ -125,7 +124,7 @@ FFT Q31 Filtered Signal 1kHz Calculated by Excel
 		599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647
 	  };
 
-#### The folling waveforms are the printout from MCU and plotted in Excel wrongfully converted to Float but not needed  
+### The folling waveforms are the printout from MCU and plotted in Excel wrongfully converted to Float but not needed  
 	
 Input DAC signal  
 ![Input DAC signal](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Input_Signal.png)
