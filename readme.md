@@ -154,6 +154,8 @@ FFT Output Q31 (normalized) using Excel Calculation
 
 [STM32F429I-DISC1_FIR_FFT_wth_Print Project](https://github.com/VictorTagayun/STM32F429I-DISC1_CMSIS_DSP_Tutorial)
 
+[Use of FMAC for FIR](https://github.com/VictorTagayun/NUCLEO-G474RE_FMAC_Study_and_Analysis)
+
 *Disclaimer:*
 
 *The projects posted here are for learning and educational purposes only.*
