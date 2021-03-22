@@ -141,7 +141,7 @@ FFT Q31 Filtered Signal 1kHz Calculated by Excel
 		599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647
 	  };
 
-### The followinging waveforms are the printout from MCU and plotted in Excel. But I wrongfully converted to Float, but no conversion is necessary.
+### The following waveforms are the printout from MCU and plotted in Excel. But I wrongfully converted to Float. Actually, no conversion is necessary.
 	
 Input DAC signal  
 
