@@ -13,6 +13,7 @@ To Study DSP concepts using STM32 on NUCLEO-G474RE
 2. captured data on excel  
 3. added "to do.txt"
 		
+		
 ## FIR Low Pass Filter Testing
 
 ### Data are fed to the DSP/Filter  
@@ -53,6 +54,8 @@ To Study DSP concepts using STM32 on NUCLEO-G474RE
 
 Then later will be converted to [Q15](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial#q15-converted-by-dsp-function-and-printed-out-by-mcudsp-and-plotted-to-excel) and [Q31](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial#q31-converted-by-dsp-function-and-printed-out-by-mcudsp-and-plotted-to-excel) by DSP functions  
 		
+		
+		
 ### The following waveforms are the printed out from MCU and plotted in Excel
 	
 #### Original Float 32 array as shown [above](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial#data-are-fed-to-the-dspfilter)     
@@ -72,6 +75,7 @@ Impulse = F32 Low Pass Filter
 F32 Filtered Signal 1kHz  
 
 ![F32 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_filtered_output.png)
+
 
 #### Q15 converted by DSP function and printed out by MCU/DSP and plotted to Excel   
 
@@ -103,6 +107,7 @@ FFT Q15 Filtered Signal 15kHz Calculated by Excel
  
 ![FFT Q15 Filtered Signal 15kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_15k_filtered_output_FFT.png)
 
+
 #### Q31 converted by DSP function and printed out by MCU/DSP and plotted to Excel  
 
 Q31 Input Signal 1kHz + 15kHz (converted by DSP from Float32 to Q31)  
@@ -125,7 +130,7 @@ FFT Q31 Filtered Signal 1kHz Calculated by Excel
 
 ![FFT Q31 Filtered Signal 1kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_1k_filtered_output_FFT.png) 
 
-	
+
 	
 ## FFT Testing  
 
@@ -140,6 +145,7 @@ FFT Q31 Filtered Signal 1kHz Calculated by Excel
 		3939, 3750, 3495, 3185, 2831, 2447, 2047, 1647, 1263, 909,
 		599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647
 	  };
+
 
 ### The following waveforms are the printout from MCU and plotted in Excel. But I wrongfully converted to Float. Actually, no conversion is necessary.
 	
