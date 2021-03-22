@@ -4,16 +4,16 @@ To Study DSP concepts using STM32 on NUCLEO-G474RE
 #### Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTagayun/STM32F429I-DISC1_CMSIS_DSP_Tutorial) & X-CUBE-DSPDEMO as basis
 
 ### First tested on NUCLEO-G474RE_FIR_FFT_wth_Print  
-  import by ioc and generate code first  
-  click "Use float with printf ...."  
-  add libarm_cortexM4lf_math.a in the linker settings  
+1. import by ioc and generate code first  
+2. click "Use float with printf ...."  
+3. add libarm_cortexM4lf_math.a in the linker settings  
 
-  2021-02-01  
-  add FFT codes  
-  captured data on excel  
-  added "to do.txt"
+2021-02-01  
+1. add FFT codes  
+2. captured data on excel  
+3. added "to do.txt"
 		
-## FIR Testing
+## FIR Low Pass Filter Testing
 
 ### Data are fed to the DSP/Filter  
 	
@@ -51,54 +51,66 @@ To Study DSP concepts using STM32 on NUCLEO-G474RE
 	-0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
 	};
 
-Then converted to Q15 and Q31
+Then later will be converted to Q15 and Q31 by DSP functions  
 		
-### The folling waveforms are the printout from MCU and plotted in Excel
+### The following waveforms are the printed out from MCU and plotted in Excel
 	
-#### Float 32 
+#### Original Float 32 array as shown above     
 	
 F32 Input Signal 1kHz + 15kHz  
+
 ![F32 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_15k_input.png)
 
 FFT F32 calculated using Excel  
+
 ![FFT F32 calculated using Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_15k_input_FFT.png)
 
 Impulse = F32 Low Pass Filter  
+
 ![Impulse = F32 Low Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_15k_input_coeff.png)
 
 F32 Filtered Signal 1kHz  
+
 ![F32 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_1k_filtered_output.png)
 
-#### Q15 converted by DSP function  
+#### Q15 converted by DSP function and printed out by MCU/DSP and plotted to Excel   
 
 Q15 Input Signal 1kHz + 15kHz (converted by DSP from Float32 to Q15)  
+
 ![Q15 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15(conv)_1k_15k_input.png)
 
 Impulse = Q15 Low Pass Filter  
+
 ![Impulse = Q15 Low Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_LP_coeff.png)
 
 Q15 Filtered Signal 1kHz  
+
 ![Q15 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_1k_filtered_output.png)
 
 FFT Q15 Filtered Signal 1kHz Calculated by Excel  
+
 ![FFT Q15 Filtered Signal 1kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_1k_filtered_output_FFT.png)
 
 Impulse = Q15 High Pass Filter  
+
 ![Impulse = Q15 High Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_HP_coeff.png)
 
 Q15 Filtered Signal 15kHz  
+
 ![Q15 Filtered Signal 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_15k_filtered_output.png)
 
-FFT Q15 Filtered Signal 15kHz Calculated by Excel  
+FFT Q15 Filtered Signal 15kHz Calculated by Excel 
+ 
 ![FFT Q15 Filtered Signal 15kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_15k_filtered_output_FFT.png)
 
-#### Q31 converted by DSP function printout by MCU/DSP and plotted to Excel  
+#### Q31 converted by DSP function and printed out by MCU/DSP and plotted to Excel  
 
 Q31 Input Signal 1kHz + 15kHz (converted by DSP from Float32 to Q31)  
+
 ![31 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31(conv)_1k_15k_input.png)
 
 FFT Q31 Calculated by Excel  
-![FFT Q31]()
+![FFT Q31](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_FFT.png)
 
 Impulse = Q31 Low Pass Filter  
 ![Impulse = Q31 Low Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_LP_coeff.png)
@@ -109,6 +121,7 @@ Q31 Filtered Signal 1kHz
 FFT Q31 Filtered Signal 1kHz Calculated by Excel  
 ![FFT Q31 Filtered Signal 1kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_1k_filtered_output_FFT.png) 
 
+	
 	
 ## FFT Testing  
 
@@ -124,41 +137,52 @@ FFT Q31 Filtered Signal 1kHz Calculated by Excel
 		599, 344, 155, 38, 0, 38, 155, 344, 599, 909, 1263, 1647
 	  };
 
-### The folling waveforms are the printout from MCU and plotted in Excel wrongfully converted to Float but not needed  
+### The followinging waveforms are the printout from MCU and plotted in Excel. But I wrongfully converted to Float, but no conversion is necessary.
 	
 Input DAC signal  
+
 ![Input DAC signal](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Input_Signal.png)
 
 FFT Normalized calculated by Excel  
+
 ![FFT Normalized](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/FFT_normalized.png)
 
 FFT Output Q15 calculated by MCU/DSP  
+
 ![FFT Output Q15](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_FFT.png)
 
 FFT Output Q15 (Normalized) using Excel Calculation  
+
 ![FFT Output Q15 (Normalized) using Excel Calculation](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_FFT%20(nomalized).png)
 
 FFT Output Float32 calculated by MCU/DSP   
+
 ![FFT Output Float32](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_FFT.png)
 
 FFT Output Float32 (normalized) using Excel Calculation  
+
 ![FFT Output Float32 (normalized) using Excel Calculation](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/F32_FFT%20(nomalized).png)
 
 FFT Output Q31 calculated by MCU/DSP    
+
 ![FFT Output Q31](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_FFT.png)
 
 FFT Output Q31 (normalized) using Excel Calculation  
+
 ![FFT Output Q31 (normalized) using Excel Calculation](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_FFT%20(nomalized).png)
 
-### Other Reference :
+### Other References :
 
 [STM32F429I-DISC1_FIR_FFT_wth_Print Project](https://github.com/VictorTagayun/STM32F429I-DISC1_CMSIS_DSP_Tutorial)
 
-[Use of FMAC for FIR](https://github.com/VictorTagayun/NUCLEO-G474RE_FMAC_Study_and_Analysis)
+[Use of FMAC for FIR Low Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_FMAC_Study_and_Analysis)
+
+[Use of FMAC for **Real Time** FIR/IIR Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_RealTime_FIR_IIR_FMAC)
 
 *Disclaimer:*
+[Updated Disclaimer](https://github.com/VictorTagayun/GlobalDisclaimer)
 
-*The projects posted here are for learning and educational purposes only.*
+*The projects posted here are for my Personal reference, learning and educational purposes only.*
 *The purpose of a certain project may be for testing a module and may be just a part of a whole project.*
 *It should not be used in a production or commercial environment.*
 *Any cause of injury and/or death is the sole responsibility of the user.*
