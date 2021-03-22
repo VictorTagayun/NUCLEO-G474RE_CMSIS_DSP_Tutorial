@@ -3,7 +3,7 @@ To Study DSP concepts using STM32 on NUCLEO-G474RE
 
 #### Initially used [STM32F429I-DISC1_FIR_FFT_wth_Print](https://github.com/VictorTagayun/STM32F429I-DISC1_CMSIS_DSP_Tutorial) & X-CUBE-DSPDEMO as basis
 
-### First tested on NUCLEO-G474RE_FIR_FFT_wth_Print  
+### First tested on [NUCLEO-G474RE_FIR_FFT_wth_Print](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/tree/main/NUCLEO-G474RE_FIR_FFT_wth_Print)
 1. import by ioc and generate code first  
 2. click "Use float with printf ...."  
 3. add libarm_cortexM4lf_math.a in the linker settings  
@@ -51,11 +51,11 @@ To Study DSP concepts using STM32 on NUCLEO-G474RE
 	-0.8660254038f, -1.2552931065f, -0.3535533906f, -0.4174197128f, -1.0000000000f, -0.1913417162f, +0.0947343455f, -0.5924659585f,
 	};
 
-Then later will be converted to Q15 and Q31 by DSP functions  
+Then later will be converted to [Q15](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial#q15-converted-by-dsp-function-and-printed-out-by-mcudsp-and-plotted-to-excel) and [Q31](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial#q31-converted-by-dsp-function-and-printed-out-by-mcudsp-and-plotted-to-excel) by DSP functions  
 		
 ### The following waveforms are the printed out from MCU and plotted in Excel
 	
-#### Original Float 32 array as shown above     
+#### Original Float 32 array as shown [above](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial#data-are-fed-to-the-dspfilter)     
 	
 F32 Input Signal 1kHz + 15kHz  
 
@@ -110,15 +110,19 @@ Q31 Input Signal 1kHz + 15kHz (converted by DSP from Float32 to Q31)
 ![31 Input Signal 1kHz + 15kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31(conv)_1k_15k_input.png)
 
 FFT Q31 Calculated by Excel  
+
 ![FFT Q31](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_FFT.png)
 
 Impulse = Q31 Low Pass Filter  
+
 ![Impulse = Q31 Low Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_LP_coeff.png)
 
 Q31 Filtered Signal 1kHz  
+
 ![Q31 Filtered Signal 1kHz](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q31_1k_filtered_output.png)
 
 FFT Q31 Filtered Signal 1kHz Calculated by Excel  
+
 ![FFT Q31 Filtered Signal 1kHz Calculated by Excel](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_1k_filtered_output_FFT.png) 
 
 	
@@ -171,6 +175,7 @@ FFT Output Q31 (normalized) using Excel Calculation
 
 ![FFT Output Q31 (normalized) using Excel Calculation](https://github.com/VictorTagayun/NUCLEO-G474RE_CMSIS_DSP_Tutorial/blob/main/NUCLEO-G474RE_FIR_FFT_wth_Print/captured_data%26plot/Q15_FFT%20(nomalized).png)
 
+
 ### Other References :
 
 [STM32F429I-DISC1_FIR_FFT_wth_Print Project](https://github.com/VictorTagayun/STM32F429I-DISC1_CMSIS_DSP_Tutorial)
@@ -178,6 +183,7 @@ FFT Output Q31 (normalized) using Excel Calculation
 [Use of FMAC for FIR Low Pass Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_FMAC_Study_and_Analysis)
 
 [Use of FMAC for **Real Time** FIR/IIR Filter](https://github.com/VictorTagayun/NUCLEO-G474RE_RealTime_FIR_IIR_FMAC)
+
 
 *Disclaimer:*
 [Updated Disclaimer](https://github.com/VictorTagayun/GlobalDisclaimer)
